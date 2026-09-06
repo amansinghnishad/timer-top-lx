@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="focus-timer">
+  <schema id="org.gnome.shell.extensions.focus-timer" path="/org/gnome/shell/extensions/focus-timer/">
+    <key name="pomodoro-duration" type="i">
+      <default>25</default>
+      <summary>Pomodoro duration</summary>
+      <description>Default focus timer duration in minutes.</description>
+    </key>
+    <key name="short-break-duration" type="i">
+      <default>5</default>
+      <summary>Short break duration</summary>
+      <description>Duration of short break in minutes.</description>
+    </key>
+    <key name="long-break-duration" type="i">
+      <default>15</default>
+      <summary>Long break duration</summary>
+      <description>Duration of long break in minutes.</description>
+    </key>
+    <key name="sound-enabled" type="b">
+      <default>true</default>
+      <summary>Sound notification</summary>
+      <description>Play an audio alert when the timer finishes.</description>
+    </key>
+    <key name="notification-enabled" type="b">
+      <default>true</default>
+      <summary>Desktop notification</summary>
+      <description>Show desktop notification when timer finishes.</description>
+    </key>
+    <key name="show-seconds-panel" type="b">
+      <default>true</default>
+      <summary>Show seconds in top bar</summary>
+      <description>Show seconds in the top bar display during countdown.</description>
+    </key>
+  </schema>
+</schemalist>

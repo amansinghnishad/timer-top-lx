@@ -1,0 +1,225 @@
+/* Focus Timer & Stopwatch Stylesheet */
+
+/* Panel Indicator */
+.focus-timer-panel-box {
+    spacing: 6px;
+}
+
+.focus-timer-panel-label {
+    font-weight: 600;
+    font-feature-settings: "tnum";
+}
+
+.focus-timer-panel-running {
+    color: #3584e4;
+}
+
+.focus-timer-panel-done {
+    color: #e01b24;
+}
+
+/* Dropdown Menu Container */
+.focus-timer-menu-box {
+    padding: 14px 16px;
+    min-width: 280px;
+    spacing: 12px;
+}
+
+/* Mode Switcher Tabs */
+.focus-timer-mode-switcher {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 3px;
+    spacing: 4px;
+}
+
+.focus-timer-tab {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 11pt;
+    text-align: center;
+    border: none;
+    color: #dedede;
+}
+
+.focus-timer-tab:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.focus-timer-tab-active {
+    background-color: #3584e4;
+    color: #ffffff;
+}
+
+/* Clock & Status Readout */
+.focus-timer-clock-box {
+    spacing: 6px;
+    padding: 6px 0;
+}
+
+/* Interactive Editable Clock */
+.focus-timer-interactive-clock {
+    spacing: 4px;
+    padding: 4px 0;
+}
+
+.focus-timer-time-col {
+    spacing: 2px;
+    min-width: 84px;
+}
+
+.focus-timer-clock-entry {
+    font-size: 32pt;
+    font-weight: 700;
+    font-feature-settings: "tnum";
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 2px 4px;
+    text-align: center;
+}
+
+.focus-timer-clock-entry:focus {
+    border-color: #3584e4;
+    background-color: rgba(53, 132, 228, 0.2);
+}
+
+.focus-timer-colon-box {
+    padding-bottom: 20px;
+}
+
+.focus-timer-clock-colon {
+    font-size: 30pt;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 4px;
+}
+
+.focus-timer-stepper-btn {
+    padding: 3px 6px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.06);
+    border: none;
+}
+
+.focus-timer-stepper-btn:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+.focus-timer-stepper-icon {
+    icon-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.focus-timer-time-label-hint {
+    font-size: 8pt;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+/* Stopwatch Static Clock Label */
+.focus-timer-clock-label {
+    font-size: 34pt;
+    font-weight: 700;
+    font-feature-settings: "tnum";
+    text-align: center;
+    color: #ffffff;
+    padding: 6px 0;
+}
+
+.focus-timer-status-label {
+    font-size: 9.5pt;
+    font-weight: 500;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Action Controls (Start / Pause / Reset) */
+.focus-timer-controls-row {
+    spacing: 10px;
+    margin-top: 4px;
+}
+
+.focus-timer-btn-primary {
+    background-color: #3584e4;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 11pt;
+    padding: 8px 24px;
+    border-radius: 10px;
+    border: none;
+}
+
+.focus-timer-btn-primary:hover {
+    background-color: #1c71d8;
+}
+
+.focus-timer-btn-primary:active {
+    background-color: #1a5fb4;
+}
+
+.focus-timer-btn-pause {
+    background-color: #e5a50a;
+    color: #1c1c1c;
+}
+
+.focus-timer-btn-pause:hover {
+    background-color: #c68900;
+}
+
+.focus-timer-btn-secondary {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #eeeeee;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 10px;
+    border: none;
+}
+
+.focus-timer-btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Laps List in Stopwatch */
+.focus-timer-lap-btn-row {
+    margin-bottom: 6px;
+}
+
+.focus-timer-laps-box {
+    max-height: 140px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 6px 10px;
+    spacing: 4px;
+}
+
+.focus-timer-lap-row {
+    font-size: 9.5pt;
+    font-feature-settings: "tnum";
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.focus-timer-lap-number {
+    font-weight: 600;
+    color: #78aeed;
+}
+
+/* Bottom Bar */
+.focus-timer-footer-row {
+    spacing: 8px;
+    margin-top: 4px;
+}
+
+.focus-timer-icon-btn {
+    padding: 6px 8px;
+    border-radius: 6px;
+    background-color: transparent;
+}
+
+.focus-timer-icon-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
