@@ -58,12 +58,3 @@ Compatible with **GNOME 45, 46, 47, 48, 49, and 50** (Ubuntu 23.10 through Ubunt
    gnome-extensions enable focus-timer@asn.dev
    ```
 
----
-
-## How to Publish to Ubuntu Extension Manager
-
-Ubuntu's **Extension Manager** application searches and installs extensions directly from the official GNOME Extension repository: [extensions.gnome.org](https://extensions.gnome.org).
-
-Once your extension is uploaded and approved on `extensions.gnome.org`, it will immediately be searchable and installable by all Ubuntu and Linux users inside **Extension Manager**.
-
-👉 See [PUBLISHING_GUIDE.md](PUBLISHING_GUIDE.md) for full step-by-step submission instructions.
