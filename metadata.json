@@ -1,7 +1,7 @@
 {
   "name": "Focus Timer & Stopwatch",
   "description": "A sleek top-bar Pomodoro focus timer and precision stopwatch designed for focused study and deep work.",
-  "uuid": "focus-timer@asn.dev",
+  "uuid": "focus-timer@github-amansinghnishad",
   "shell-version": [
     "45",
     "46",
@@ -11,6 +11,6 @@
     "50"
   ],
   "settings-schema": "org.gnome.shell.extensions.focus-timer",
-  "url": "https://github.com/asn/focus-timer",
+  "url": "https://github.com/amansinghnishad/timer-top-lx",
   "version": 1
 }

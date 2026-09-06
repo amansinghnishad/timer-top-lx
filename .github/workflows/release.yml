@@ -1,0 +1,46 @@
+name: Release to GNOME Extensions & GitHub
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gnome-shell libglib2.0-bin zip
+
+      - name: Build and pack extension bundle
+        id: pack
+        run: |
+          ./package.sh
+          ZIP_NAME=$(ls -1 *.shell-extension.zip | head -n 1)
+          echo "zip_name=$ZIP_NAME" >> "$GITHUB_OUTPUT"
+          echo "Built bundle: $ZIP_NAME"
+
+      - name: Attach zip to GitHub Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.pack.outputs.zip_name }}
+
+      - name: Upload to extensions.gnome.org (EGO)
+        if: env.EGO_SESSION != ''
+        env:
+          EGO_SESSION: ${{ secrets.EGO_SESSION }}
+        uses: fjakobs/gnome-extension-uploader@v1
+        with:
+          extension-file: ${{ steps.pack.outputs.zip_name }}
+          ego-session: ${{ secrets.EGO_SESSION }}

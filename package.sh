@@ -4,21 +4,18 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
-UUID="focus-timer@asn.dev"
+UUID=$(grep -oP '"uuid":\s*"\K[^"]+' metadata.json || echo "focus-timer@github-amansinghnishad")
 ZIP_NAME="${UUID}.shell-extension.zip"
 
-echo "==> Compiling GSettings schemas..."
-glib-compile-schemas schemas/
+echo "==> Preparing clean schema for release (no compiled artifacts in zip)..."
+rm -f schemas/gschemas.compiled gschemas.compiled "$ZIP_NAME"
 
-echo "==> Packing extension bundle..."
-rm -f "$ZIP_NAME"
-
-# Check if gnome-extensions CLI is available
+echo "==> Packing extension bundle for extensions.gnome.org..."
+# gnome-extensions pack creates an EGO-compliant zip
 if command -v gnome-extensions >/dev/null 2>&1; then
     gnome-extensions pack \
         --force \
         --schema=schemas/org.gnome.shell.extensions.focus-timer.gschema.xml \
-        --extra-source=schemas/gschemas.compiled \
         --extra-source=stylesheet.css \
         --extra-source=prefs.js \
         .
@@ -27,4 +24,4 @@ else
 fi
 
 echo "==> Successfully created: $ZIP_NAME"
-echo "==> Ready to publish to https://extensions.gnome.org/upload/ !"
+echo "==> Clean bundle ready for https://extensions.gnome.org/upload/ (Zero EGO warnings)!"

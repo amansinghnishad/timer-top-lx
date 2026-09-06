@@ -2,7 +2,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-UUID="focus-timer@asn.dev"
+UUID=$(grep -oP '"uuid":\s*"\K[^"]+' "$SCRIPT_DIR/metadata.json" || echo "focus-timer@github-amansinghnishad")
 EXT_DIR="$HOME/.local/share/gnome-shell/extensions/$UUID"
 
 echo "==> Building and compiling schemas..."
