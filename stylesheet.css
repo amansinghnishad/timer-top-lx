@@ -1,214 +1,256 @@
-/* Focus Timer & Stopwatch Stylesheet */
+/* Focus Timer & Stopwatch - macOS-Inspired Aesthetic */
+/* Designed for high GPU rendering performance & clean SF-style layout */
 
-/* Panel Indicator */
+/* Top Bar Panel Indicator (macOS Menu Bar Style) */
 .focus-timer-panel-box {
-    spacing: 6px;
+    spacing: 5px;
+    padding: 0 3px;
 }
 
 .focus-timer-panel-label {
-    font-weight: 600;
-    font-feature-settings: "tnum";
+    font-weight: 500;
+    font-feature-settings: "tnum" 1;
+    letter-spacing: 0.3px;
 }
 
 .focus-timer-panel-running {
-    color: #3584e4;
+    color: #0a84ff;
 }
 
 .focus-timer-panel-done {
-    color: #e01b24;
+    color: #ff453a;
 }
 
-/* Dropdown Menu Container */
+/* Dropdown Menu Container (macOS Frosted Glass Card) */
 .focus-timer-menu-box {
     padding: 14px 16px;
-    min-width: 280px;
+    min-width: 290px;
     spacing: 12px;
 }
 
-/* Mode Switcher Tabs */
+/* macOS Segmented Control Tabs */
 .focus-timer-mode-switcher {
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 10px;
-    padding: 3px;
-    spacing: 4px;
+    padding: 2px;
+    spacing: 3px;
 }
 
 .focus-timer-tab {
-    padding: 6px 12px;
+    padding: 5px 12px;
     border-radius: 8px;
-    font-weight: 600;
-    font-size: 11pt;
+    font-weight: 500;
+    font-size: 10.5pt;
     text-align: center;
     border: none;
-    color: #dedede;
+    color: rgba(255, 255, 255, 0.75);
+    background-color: transparent;
+    transition-duration: 150ms;
 }
 
 .focus-timer-tab:hover {
-    background-color: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 .focus-timer-tab-active {
-    background-color: #3584e4;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     color: #ffffff;
+    font-weight: 600;
 }
 
-/* Clock & Status Readout */
+/* Clock & Status Container */
 .focus-timer-clock-box {
     spacing: 6px;
-    padding: 6px 0;
+    padding: 4px 0 2px 0;
 }
 
-/* Interactive Editable Clock */
+/* Interactive Editable Digital Clock (macOS Timer Input) */
 .focus-timer-interactive-clock {
     spacing: 4px;
-    padding: 4px 0;
+    padding: 2px 0;
 }
 
 .focus-timer-time-col {
     spacing: 2px;
-    min-width: 84px;
+    min-width: 90px;
 }
 
 .focus-timer-clock-entry {
-    font-size: 32pt;
-    font-weight: 700;
-    font-feature-settings: "tnum";
+    font-size: 33pt;
+    font-weight: 600;
+    font-feature-settings: "tnum" 1;
     color: #ffffff;
     background-color: rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 2px 4px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 4px 6px;
     text-align: center;
+    transition-duration: 150ms;
 }
 
 .focus-timer-clock-entry:focus {
-    border-color: #3584e4;
-    background-color: rgba(53, 132, 228, 0.2);
+    border: 1px solid #0a84ff;
+    background-color: rgba(10, 132, 255, 0.18);
+    color: #ffffff;
 }
 
 .focus-timer-colon-box {
-    padding-bottom: 20px;
+    padding-bottom: 22px;
 }
 
 .focus-timer-clock-colon {
-    font-size: 30pt;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.8);
-    margin: 0 4px;
+    font-size: 32pt;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0 3px;
 }
 
+/* Stepper Arrows (macOS Micro Steppers) */
 .focus-timer-stepper-btn {
-    padding: 3px 6px;
+    padding: 2px 6px;
     border-radius: 6px;
-    background-color: rgba(255, 255, 255, 0.06);
+    background-color: transparent;
     border: none;
+    transition-duration: 120ms;
 }
 
 .focus-timer-stepper-btn:hover {
-    background-color: rgba(255, 255, 255, 0.18);
+    background-color: rgba(255, 255, 255, 0.14);
+}
+
+.focus-timer-stepper-btn:active {
+    background-color: rgba(255, 255, 255, 0.22);
 }
 
 .focus-timer-stepper-icon {
-    icon-size: 14px;
-    color: rgba(255, 255, 255, 0.7);
+    icon-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
 }
 
+.focus-timer-stepper-btn:hover .focus-timer-stepper-icon {
+    color: #ffffff;
+}
+
+/* Column Subtitles (MIN / SEC) */
 .focus-timer-time-label-hint {
     font-size: 8pt;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.4);
-    letter-spacing: 0.5px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.38);
+    letter-spacing: 0.8px;
     margin-top: 2px;
 }
 
-/* Stopwatch Static Clock Label */
+/* Stopwatch Static Clock Readout */
 .focus-timer-clock-label {
-    font-size: 34pt;
-    font-weight: 700;
-    font-feature-settings: "tnum";
+    font-size: 36pt;
+    font-weight: 600;
+    font-feature-settings: "tnum" 1;
+    letter-spacing: 0.5px;
     text-align: center;
     color: #ffffff;
-    padding: 6px 0;
+    padding: 8px 0;
 }
 
 .focus-timer-status-label {
     font-size: 9.5pt;
     font-weight: 500;
+    letter-spacing: 0.2px;
     text-align: center;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.55);
 }
 
-/* Action Controls (Start / Pause / Reset) */
+/* Action Controls (macOS Pill Buttons) */
 .focus-timer-controls-row {
     spacing: 10px;
     margin-top: 4px;
 }
 
 .focus-timer-btn-primary {
-    background-color: #3584e4;
+    background-color: #0a84ff;
     color: #ffffff;
-    font-weight: 700;
-    font-size: 11pt;
+    font-weight: 600;
+    font-size: 10.5pt;
+    letter-spacing: 0.3px;
     padding: 8px 24px;
-    border-radius: 10px;
+    border-radius: 20px;
     border: none;
+    transition-duration: 150ms;
 }
 
 .focus-timer-btn-primary:hover {
-    background-color: #1c71d8;
+    background-color: #0077ed;
 }
 
 .focus-timer-btn-primary:active {
-    background-color: #1a5fb4;
+    background-color: #0062c4;
 }
 
+/* Pause Button (macOS System Amber) */
 .focus-timer-btn-pause {
-    background-color: #e5a50a;
-    color: #1c1c1c;
+    background-color: #ff9f0a;
+    color: #1c1c1e;
+    font-weight: 600;
 }
 
 .focus-timer-btn-pause:hover {
-    background-color: #c68900;
+    background-color: #ffb340;
 }
 
+.focus-timer-btn-pause:active {
+    background-color: #e08b00;
+}
+
+/* Secondary Button (macOS Translucent Capsule) */
 .focus-timer-btn-secondary {
     background-color: rgba(255, 255, 255, 0.1);
-    color: #eeeeee;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 10px;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #f5f5f7;
+    font-weight: 500;
+    font-size: 10.5pt;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition-duration: 150ms;
 }
 
 .focus-timer-btn-secondary:hover {
     background-color: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
 }
 
-/* Laps List in Stopwatch */
+.focus-timer-btn-secondary:active {
+    background-color: rgba(255, 255, 255, 0.24);
+}
+
+/* Stopwatch Laps Card */
 .focus-timer-lap-btn-row {
     margin-bottom: 6px;
 }
 
 .focus-timer-laps-box {
-    max-height: 140px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    padding: 6px 10px;
-    spacing: 4px;
+    max-height: 130px;
+    background-color: rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 8px 12px;
+    spacing: 5px;
 }
 
 .focus-timer-lap-row {
     font-size: 9.5pt;
-    font-feature-settings: "tnum";
+    font-feature-settings: "tnum" 1;
     color: rgba(255, 255, 255, 0.85);
 }
 
 .focus-timer-lap-number {
     font-weight: 600;
-    color: #78aeed;
+    color: #0a84ff;
 }
 
-/* Bottom Bar */
+/* Footer Action Icons */
 .focus-timer-footer-row {
     spacing: 8px;
     margin-top: 4px;
@@ -216,10 +258,16 @@
 
 .focus-timer-icon-btn {
     padding: 6px 8px;
-    border-radius: 6px;
+    border-radius: 8px;
     background-color: transparent;
+    border: none;
+    transition-duration: 120ms;
 }
 
 .focus-timer-icon-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+.focus-timer-icon-btn:active {
+    background-color: rgba(255, 255, 255, 0.18);
 }

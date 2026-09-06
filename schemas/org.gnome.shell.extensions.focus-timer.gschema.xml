@@ -3,18 +3,8 @@
   <schema id="org.gnome.shell.extensions.focus-timer" path="/org/gnome/shell/extensions/focus-timer/">
     <key name="pomodoro-duration" type="i">
       <default>25</default>
-      <summary>Pomodoro duration</summary>
-      <description>Default focus timer duration in minutes.</description>
-    </key>
-    <key name="short-break-duration" type="i">
-      <default>5</default>
-      <summary>Short break duration</summary>
-      <description>Duration of short break in minutes.</description>
-    </key>
-    <key name="long-break-duration" type="i">
-      <default>15</default>
-      <summary>Long break duration</summary>
-      <description>Duration of long break in minutes.</description>
+      <summary>Default Focus Duration</summary>
+      <description>Default initial focus timer duration in minutes.</description>
     </key>
     <key name="sound-enabled" type="b">
       <default>true</default>

@@ -10,17 +10,19 @@ ZIP_NAME="${UUID}.shell-extension.zip"
 echo "==> Preparing clean schema for release (no compiled artifacts in zip)..."
 rm -f schemas/gschemas.compiled gschemas.compiled "$ZIP_NAME"
 
-echo "==> Packing extension bundle for extensions.gnome.org..."
-# gnome-extensions pack creates an EGO-compliant zip
+echo "==> Packing modular extension bundle for extensions.gnome.org..."
 if command -v gnome-extensions >/dev/null 2>&1; then
     gnome-extensions pack \
         --force \
         --schema=schemas/org.gnome.shell.extensions.focus-timer.gschema.xml \
+        --extra-source=indicator.js \
+        --extra-source=clockWidget.js \
+        --extra-source=utils.js \
         --extra-source=stylesheet.css \
         --extra-source=prefs.js \
         .
 else
-    zip -r "$ZIP_NAME" metadata.json extension.js prefs.js stylesheet.css schemas/
+    zip -r "$ZIP_NAME" metadata.json extension.js indicator.js clockWidget.js utils.js prefs.js stylesheet.css schemas/
 fi
 
 echo "==> Successfully created: $ZIP_NAME"

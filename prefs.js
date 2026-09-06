@@ -11,22 +11,21 @@ export default class FocusTimerPreferences extends ExtensionPreferences {
         const settings = this.getSettings();
 
         const page = new Adw.PreferencesPage({
-            title: _('Focus Timer Settings'),
+            title: _('General'),
             icon_name: 'preferences-system-time-symbolic',
         });
         window.add(page);
 
-        // Group 1: Timer Presets
-        const presetsGroup = new Adw.PreferencesGroup({
-            title: _('Study & Break Durations'),
-            description: _('Configure default times (in minutes) for focused work and rest intervals'),
+        // Group 1: Default Duration
+        const timerGroup = new Adw.PreferencesGroup({
+            title: _('Timer Settings'),
+            description: _('Configure default timer duration'),
         });
-        page.add(presetsGroup);
+        page.add(timerGroup);
 
-        // Pomodoro Duration SpinRow
         const pomoRow = new Adw.SpinRow({
-            title: _('Focus Session (Pomodoro)'),
-            subtitle: _('Default study duration in minutes'),
+            title: _('Default Focus Duration (Minutes)'),
+            subtitle: _('Initial timer duration on startup or reset'),
             adjustment: new Gtk.Adjustment({
                 lower: 1,
                 upper: 180,
@@ -36,55 +35,25 @@ export default class FocusTimerPreferences extends ExtensionPreferences {
             }),
         });
         settings.bind('pomodoro-duration', pomoRow, 'value', Gio.SettingsBindFlags.DEFAULT);
-        presetsGroup.add(pomoRow);
-
-        // Short Break Duration SpinRow
-        const shortBreakRow = new Adw.SpinRow({
-            title: _('Short Break'),
-            subtitle: _('Rest duration after a focus session in minutes'),
-            adjustment: new Gtk.Adjustment({
-                lower: 1,
-                upper: 60,
-                step_increment: 1,
-                page_increment: 5,
-                value: settings.get_int('short-break-duration'),
-            }),
-        });
-        settings.bind('short-break-duration', shortBreakRow, 'value', Gio.SettingsBindFlags.DEFAULT);
-        presetsGroup.add(shortBreakRow);
-
-        // Long Break Duration SpinRow
-        const longBreakRow = new Adw.SpinRow({
-            title: _('Long Break'),
-            subtitle: _('Extended rest duration in minutes'),
-            adjustment: new Gtk.Adjustment({
-                lower: 1,
-                upper: 120,
-                step_increment: 1,
-                page_increment: 5,
-                value: settings.get_int('long-break-duration'),
-            }),
-        });
-        settings.bind('long-break-duration', longBreakRow, 'value', Gio.SettingsBindFlags.DEFAULT);
-        presetsGroup.add(longBreakRow);
+        timerGroup.add(pomoRow);
 
         // Group 2: Notifications & Sound
         const alertsGroup = new Adw.PreferencesGroup({
             title: _('Alerts & Sound'),
-            description: _('How you are notified when a timer ends'),
+            description: _('Notifications when timer runs out'),
         });
         page.add(alertsGroup);
 
         const soundRow = new Adw.SwitchRow({
-            title: _('Sound Chime'),
-            subtitle: _('Play an audio alert when timer runs out'),
+            title: _('Sound Alert'),
+            subtitle: _('Play audio chime when session finishes'),
         });
         settings.bind('sound-enabled', soundRow, 'active', Gio.SettingsBindFlags.DEFAULT);
         alertsGroup.add(soundRow);
 
         const notifRow = new Adw.SwitchRow({
             title: _('Desktop Notification'),
-            subtitle: _('Show a desktop banner alert when timer runs out'),
+            subtitle: _('Show a banner alert when session finishes'),
         });
         settings.bind('notification-enabled', notifRow, 'active', Gio.SettingsBindFlags.DEFAULT);
         alertsGroup.add(notifRow);
@@ -92,7 +61,7 @@ export default class FocusTimerPreferences extends ExtensionPreferences {
         // Group 3: Top Bar Appearance
         const appearanceGroup = new Adw.PreferencesGroup({
             title: _('Top Bar Appearance'),
-            description: _('Visual settings for the panel indicator'),
+            description: _('Display settings for the panel counter'),
         });
         page.add(appearanceGroup);
 
